@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pequeña no quiero estar asi, Te amo, me pone triste lo que dices cuanddo estas molesta ¿Estamos bien? ¿Me perdonas? </title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #000000;
+      text-align: center;
+    }
+    h1 {
+      color: #be185d;
+      margin-bottom: 24px;
+    }
+    .botones {
+      position: relative;
+      display: flex;
+      gap: 20px;
+    }
+    button {
+      padding: 12px 24px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    #btn-si {
+      background-color: #ec4899;
+      color: white;
+    }
+    #btn-no {
+      background-color: #e5e7eb;
+      color: #111827;
+      position: relative;
+    }
+    #mensaje {
+      margin-top: 24px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #831843;
+    }
+  </style>
+</head>
+<body>
+  <h1>Pequeña no quiero estar así, Te amo, me pone triste lo que dices cuando estás molesta. ¿Estamos bien? ¿Me perdonas?</h1>
+  <div class="botones">
+    <button id="btn-si">Sípirili, te perdono</button>
+    <button id="btn-no">Noup</button>
+  </div>
+  <div id="mensaje"></div>
+
+  <script>
+    const btnSi = document.getElementById("btn-si");
+    const btnNo = document.getElementById("btn-no");
+    const mensaje = document.getElementById("mensaje");
+
+    function moverBoton() {
+      const maxX = window.innerWidth - btnNo.offsetWidth - 20;
+      const maxY = window.innerHeight - btnNo.offsetHeight - 20;
+      const x = Math.max(10, Math.floor(Math.random() * maxX));
+      const y = Math.max(10, Math.floor(Math.random() * maxY));
+      btnNo.style.position = "fixed";
+      btnNo.style.left = x + "px";
+      btnNo.style.top = y + "px";
+    }
+
+    btnNo.addEventListener("mouseover", moverBoton);
+    btnNo.addEventListener("touchstart", (e) => {
+      e.preventDefault();
+      moverBoton();
+    });
+
+    btnSi.addEventListener("click", () => {
+      mensaje.textContent = "¡Gracias preciosa! Te amo mucho, muschisimo, mochote. Prometo mejorar, no hacer mas estupideces y apoyarte en todo lo que pueda y hacer lo imposible en lo que no pueda. ser mejor para ti.";
+      btnNo.style.display = "none";
+    });
+  </script>
+</body>
+</html>
